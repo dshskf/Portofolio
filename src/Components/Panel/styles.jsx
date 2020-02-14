@@ -1,42 +1,12 @@
 import styled, { css } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const iChild = css`
-	&:nth-child(1) {
-		transition-delay: 0s;
-	}
-	&:nth-child(3) {
-		transition-delay: .25s;
-	}
-	&:nth-child(5) {
-		transition-delay: .5s;
-	}
-	&:nth-child(7) {
-		transition-delay: .75s;
-	}
-`;
-
-const pChild = css`
-	&:nth-child(2) {
-		transition-delay: 0s;
-	}
-	&:nth-child(4) {
-		transition-delay: .25s;
-	}
-	&:nth-child(6) {
-		transition-delay: .5s;
-	}
-	&:nth-child(8) {
-		transition-delay: .75s;
-	}
-`;
-
 const panelList = css`
 	cursor: pointer;
-	color: white;
-	opacity:${(props) => (props.show ? 1:0)};
-	/* filter: ${(props) => (props.show ? 'blur(0)' : 'blur(50px)')}; */
-	transition: ${(props) => (props.delay ? "all 0.4s" : "all .75s ease-out")};
+	color: ${(props) => (props.highlight ? '#00ff76' : 'white')};
+	filter: ${(props) => (props.highlight ? 'drop-shadow(0 0 5px #00ff76)' : null)};	
+	opacity:1;	
+	transition: ${(props) => (props.delay ? 'all 0.2s' : 'all .75s ease-out')};
 `;
 
 export const PanelContainer = styled.div`
@@ -44,6 +14,13 @@ export const PanelContainer = styled.div`
 	height: 100vh;
 	width: 5vw;
 	background: #222222;
+	z-index:10;
+	@media (max-width:760px) {
+		top:0;
+		height:10vh;
+		width:100vw;
+		position:fixed;
+	}
 `;
 
 export const PanelSizer = styled.div`
@@ -54,12 +31,13 @@ export const PanelSizer = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	transform: ${(props) => (props.show ? 'translateY(25vh)' : 'translateY(0)')};
+	transform:translateY(25vh);
 	transition: all 2s;
 
-	* {
-		${(props) => (props.delay ? null : iChild)}
-		${(props) => (props.delay ? null : pChild)}
+	@media (max-width:760px) {
+		flex-direction: row;
+		transform:translateY(0);
+		height: 10vh;
 	}
 `;
 
@@ -68,13 +46,18 @@ export const PanelIcon = styled(FontAwesomeIcon)`
 
 	font-size: 2rem;
 	margin-top: 1.5rem;
-	
+
 	&:hover {
 		color: #00ff76;
+		filter: drop-shadow(0 0 5px #00ff76);
 	}
 
 	&:hover + p {
 		color: #00ff76;
+	}
+
+	@media (max-width:760px) {
+		margin:0 5%;
 	}
 `;
 
@@ -83,11 +66,15 @@ export const Pargaraph = styled.p`
 
 	margin: 0.5rem;
 	font-size: 0.8rem;
-	
+
 	&:hover {
 		color: #00ff76;
 	}
 	&:hover + i {
 		color: #00ff76;
+	}
+
+	@media (max-width:760px) {
+		display:none;
 	}
 `;

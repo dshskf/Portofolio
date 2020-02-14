@@ -14,15 +14,15 @@ export const SubContainer = styled.div`
 
 	&:nth-child(1) {
 		transform: ${(props) => (props.isShow ? 'translateY(0rem)' : null)};
-		transition-delay: 0.5s;
+		transition-delay: 0.2s;
 	}
 	&:nth-child(2) {
 		transform: ${(props) => (props.isShow ? 'translateY(0rem)' : null)};
-		transition-delay: 1s;
+		transition-delay: 0.7s;
 	}
 	&:nth-child(3) {
 		transform: ${(props) => (props.isShow ? 'translateY(0rem)' : null)};
-		transition-delay: 1.5s;
+		transition-delay: 1.2s;
 	}
 
 	h1 {
@@ -30,9 +30,17 @@ export const SubContainer = styled.div`
 		text-shadow: 0 0 5px #00ff76;
 		margin: 1rem auto;
 	}
+
+	@media (max-width:760px) {
+		height:auto;
+		transform:translateY(0);
+		background:#292929;
+		border:none;
+		border-bottom: 2px solid #00ff76;
+	}
 `;
 export const IconLogo = styled(FontAwesomeIcon)`
-	text-shadow: 0 0 5px #00ff76;
+	filter: drop-shadow(0 0 5px #00ff76);
 	font-size: 3rem;
 `;
 

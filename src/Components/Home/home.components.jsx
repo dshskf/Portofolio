@@ -21,22 +21,25 @@ export class HomeComponent extends Component {
         isHover: false,
         invertColor: false,
         show: false,
-        showBox:false,
-        showImg:false
+        showBox: false,
+        showImg: false
     };
 
     componentDidMount() {
+
+        const formWidth = window.innerWidth;
+
         setTimeout(() => {
             this.setState({ show: !this.state.show });
-        }, 1500);
+        }, formWidth > 760 ? 100 : 0);
 
         setTimeout(() => {
             this.setState({ showImg: !this.state.showImg });
-        }, 3500);
+        }, formWidth > 760 ? 2300 : 0);
 
         setTimeout(() => {
             this.setState({ showBox: !this.state.showBox });
-        }, 4500);
+        }, formWidth > 760 ? 3300 : 0);
     }
 
     mouseHover = () => {
@@ -50,6 +53,14 @@ export class HomeComponent extends Component {
             invertColor: !this.state.invertColor
         });
     };
+
+    downloadHandler = () => {
+        fetch('http://localhost:9000/portofolio', {
+            method: "GET"
+        })
+            .then(res => res.json())
+            .then(data => data)
+    }
 
     render() {
         let data = {
@@ -91,7 +102,9 @@ export class HomeComponent extends Component {
                     <h2>Software Developer</h2>
                     <DownloadButton
                         onMouseOver={this.mouseHover}
-                        onMouseLeave={this.mouseHover}>
+                        onMouseLeave={this.mouseHover}
+                        onClick={this.downloadHandler}
+                    >
                         Portofolio
 					</DownloadButton>
                 </HomeData>

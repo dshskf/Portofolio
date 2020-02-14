@@ -7,6 +7,11 @@ export const HomeContainer = styled.div`
 	left: 5vw;
 	width: 100%;
 	height: 100vh;
+
+	@media (max-width:760px) {
+		left:0;
+	}
+
 `;
 
 export const ThemeMode = styled.div`
@@ -42,6 +47,10 @@ export const HomeRope = styled.div`
 	height: 23%;
 	transform:${(props) => (props.show ? "translateY(0rem)" : "translateY(-100rem)")};	
 	transition: all 1.4s ease-out;
+
+	@media (max-width:760px) {
+		display:none !important;
+	}
 `;
 
 export const HomeData = styled.div`
@@ -78,6 +87,13 @@ export const HomeData = styled.div`
 		font-size: 1.2rem;
 		color: white;
 	}
+
+	@media (max-width:760px) {
+		width:50vw;
+		left:0;
+		right:0;
+		margin:0 auto;
+	}
 `;
 
 export const HomeAdditional = styled.div`
@@ -88,6 +104,12 @@ export const HomeAdditional = styled.div`
 	height: 40%;
 	display: grid;
 	grid-template-columns: repeat(3, 32%);
+
+	@media (max-width:760px) {
+		display:flex;
+		flex-direction:column;		
+	}
+
 `;
 
 export const Image = styled.img`
@@ -97,6 +119,10 @@ export const Image = styled.img`
 	top: 15%;	
 	filter:${(props) => (props.show ? "blur(0) brightness(100%) opacity(1)" : "blur(20px) brightness(0%) opacity(0)")};	
 	transition:all 1s ease-in;
+
+	@media (max-width:760px) {
+		display:none;
+	}
 `;
 
 const input_before_after = css`

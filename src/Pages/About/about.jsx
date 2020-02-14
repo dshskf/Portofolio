@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import Panel from '../../Components/Panel/panel.components'
-import HomeComponent from '../../Components/Home/home.components'
+import AboutMeComponents from '../../Components/About/about'
 
-export class HomePage extends Component {
+export class AboutMePage extends Component {
     render() {
         return (
             <React.Fragment>
-                <Panel index={0} />
-                <HomeComponent />
+                <Panel index={3} />
+                <AboutMeComponents />
             </React.Fragment>
         )
     }
 }
 
-export default HomePage
+export default AboutMePage
