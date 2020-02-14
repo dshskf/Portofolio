@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Profile, Information, Attributes, SubAttributes, Progress, ProfileContainer } from './styles'
+import { Profile, Information, Attributes, SubAttributes, ProfileContainer } from './styles'
 
 import ProgressBar from '../../ProgressBar/bar'
 
@@ -23,7 +23,6 @@ export class Profiles extends Component {
                 fillParam: 1
             })
         }, formWidth > 760 ? 6000 : 0)
-
     }
 
     render() {
@@ -56,7 +55,7 @@ export class Profiles extends Component {
                     <Information>
                         <h1><b>ALEXANDER</b> KEVIN</h1>
                         <h2>SOFTWARE DEVELOPER</h2>
-                        <p>Born in <b>Surabaya</b>, 18 March 1999, im 21 years old software developer with some experience in developing web and android app, im the first son of two, now im living in cikarang as the 8 semester student in President University.</p>
+                        <p>Born in <b>Surabaya</b>, 18 March 1999, i'm 21 years old software developer with some experience in developing web and android app, i'm the first son of two, now im living in Cikarang as the 8 semester student in President University.</p>
                     </Information>
 
                     <Attributes>
