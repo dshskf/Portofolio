@@ -54,12 +54,8 @@ export class HomeComponent extends Component {
         });
     };
 
-    downloadHandler = () => {
-        fetch('https://portofolio-api.herokuapp.com/portofolio', {
-            method: "GET"
-        })
-            .then(res => res.json())
-            .then(data => data)
+    downloadHandler = () => {        
+        window.open('https://portofolio-api.herokuapp.com/portofolio', "_blank")
     }
 
     render() {
