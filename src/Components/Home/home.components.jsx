@@ -55,7 +55,7 @@ export class HomeComponent extends Component {
     };
 
     downloadHandler = () => {
-        fetch('http://localhost:9000/portofolio', {
+        fetch('https://portofolio-api.herokuapp.com/portofolio', {
             method: "GET"
         })
             .then(res => res.json())
