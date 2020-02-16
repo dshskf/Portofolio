@@ -28,7 +28,7 @@ export class ContactForm extends Component {
     }
 
     submitForm = async () => {
-        fetch('http://localhost:9000/post', {
+        fetch('https://portofolio-api.herokuapp.com/post', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
