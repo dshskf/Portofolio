@@ -81,3 +81,10 @@ export const SubmitButton = styled.input`
 	background: #00ff76;
 	cursor: pointer;
 `;
+
+export const ErrText = styled.p`
+color:red;
+margin:0.4rem 0;
+margin-left:40%;
+font-weight:1.2rem;
+`

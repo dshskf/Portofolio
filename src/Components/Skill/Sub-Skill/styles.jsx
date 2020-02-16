@@ -73,14 +73,13 @@ export const SubSkillContainer = styled.div`
 	transform: ${(props) => (props.rotate ? 'rotate(0)' : null)};
 	transition: all 1s;
 
-	@media(max-width:760px){
-		width:100vw;
-		background:transparent;
-		box-shadow:none;
-		transform:none;
+	@media (max-width: 760px) {
+		width: 100vw;
+		background: transparent;
+		box-shadow: none;
+		transform: none;
 	}
 `;
-
 
 export const Skill = styled.div`
 	width: 37vw;
@@ -91,13 +90,13 @@ export const Skill = styled.div`
 	position: absolute;
 	top: -19.5vw;
 	left: 28vw;
-	display: flex;	
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	transform: ${(props) => (props.show ? 'scale(1)' : 'scale(0)')};
 	opacity: ${(props) => (props.show ? 1 : 0)};
-	animation:${shadow} 3s linear infinite;
+	animation: ${shadow} 3s linear infinite;
 	transition: all 1s;
 
 	&:before {
@@ -105,27 +104,26 @@ export const Skill = styled.div`
 		width: 31vw;
 		height: 31vw;
 		border-radius: 50%;
-		position: absolute;		
+		position: absolute;
 		border: ${(props) => (props.animate ? '0.4rem solid white' : '')};
-	border-top: 0.4rem solid #292929;
-	border-bottom: 0.4rem solid #292929;
-	animation: ${round} 3s linear infinite;
-	transition: all 1.5s;	
+		border-top: 0.4rem solid #292929;
+		border-bottom: 0.4rem solid #292929;
+		animation: ${round} 3s linear infinite;
+		transition: all 1.5s;
 
-	@media(max-width:760px){
-		animation:none;
-		border:none;		
-	}
-			
+		@media (max-width: 760px) {
+			animation: none;
+			border: none;
+		}
 	}
 
-	@media(max-width:760px){
-		width:100%;
-		border:none;
-		box-shadow:none;		
-		left:0;
-		top:-10vh;
-		animation:none;
+	@media (max-width: 760px) {
+		width: 100%;
+		border: none;
+		box-shadow: none;
+		left: 0;
+		top: -10vh;
+		animation: none;
 	}
 `;
 
@@ -147,8 +145,8 @@ export const LeftArrow = styled.span`
 	${arrow};
 	left: 1%;
 
-	@media(max-width:760px){
-		left:5%;
+	@media (max-width: 760px) {
+		left: 5%;
 	}
 `;
 
@@ -156,10 +154,9 @@ export const RightArrow = styled.span`
 	${arrow};
 	right: 1%;
 
-	@media(max-width:760px){
-		right:5%;
+	@media (max-width: 760px) {
+		right: 5%;
 	}
-
 `;
 
 export const SkillTitle = styled.div`
@@ -189,7 +186,7 @@ export const SkillList = styled.div`
 	justify-content: center;
 	margin: 1% 0;
 	width: 60%;
-	height:auto;
+	height: auto;
 	transform: ${(props) => (props.next ? 'scale(0.5)' : 'scale(1)')};
 	opacity: ${(props) => {
 		return props.show ? (props.next ? 0 : 1) : 0;
@@ -199,8 +196,8 @@ export const SkillList = styled.div`
 	}};
 	transition: all 1s;
 
-	@media(max-width:760px){
-		width:80%;
+	@media (max-width: 760px) {
+		width: 80%;
 	}
 `;
 
@@ -211,20 +208,63 @@ export const IconLogo = styled(FontAwesomeIcon)`
 `;
 
 export const MyProject = styled.div`
-	display: flex;	
-	align-items: center;
-	flex-direction:column;
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;	
 
-	p{
-		color:${props => props.mark ? "#00ff76" : "white"};
-		margin:0.3rem 0;
+	p {
+		color: ${(props) => (props.mark ? '#00ff76' : 'white')};
+		margin: 0.3rem 0;
+		margin-left:25%;
 	}
 `;
 
+export const SubProject = styled.div`
+	display: grid;
+	grid-template-columns: 50% 50% ;
+	grid-template-rows:60% 40%;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin:.7rem 0;
+`;
 
-export const ProjectHeader = styled.h1`
-color:${props => props.linked ? "white" : "#00ff76"};
-margin:0.5rem 0;
-position:relative;
-cursor:${props => props.linked ? "pointer" : null};
+const linkButton = css`
+font-weight: bold;
+cursor: pointer;
+	background:#00ff76;
+	padding:0.3rem;	
+	width:50%;
+	margin-left:22% ;
+	/* margin:0 auto; */
+	&:hover{
+	box-shadow:0 0 10px 2px green;	
+	}
 `
+
+const detailButton = css`
+cursor: pointer;
+border:1px solid #00ff76;
+color:#00ff76;
+	padding:0.3rem;	
+	margin-left:22%;
+	width:50%;
+	&:hover{
+		font-weight:bold;
+		text-shadow:0 0 10px white;
+	}
+
+`
+
+export const ProjectText = styled.p`
+	color: ${(props) => (props.mark ? '#00ff76 !important' : 'white')};	
+	margin: 0.3rem auto;	
+	z-index:10;
+
+${props => props.link ? linkButton : null}
+${props => props.detail ? detailButton : null}
+
+margin:${props => props.soon ? "0 !important" : null};
+
+`;

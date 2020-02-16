@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { faHtml5, faCss3Alt, faJs, faNode, faReact, faPhp, faJava, faAndroid, faPython, faRProject } from '@fortawesome/free-brands-svg-icons'
 import { faGlobe, faDatabase, faEdit, faProjectDiagram, faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons'
 import { faDotCircle } from '@fortawesome/free-regular-svg-icons'
-import { SubSkillContainer, Skill, LeftArrow, RightArrow, SkillTitle, IconLogo, SkillList, IllustratorLogo, PhotoshopLogo, AfterEffectLogo, PremiereLogo, MyProject, ProjectHeader } from './styles'
+import { SubSkillContainer, Skill, LeftArrow, RightArrow, SkillTitle, IconLogo, SkillList, IllustratorLogo, PhotoshopLogo, AfterEffectLogo, PremiereLogo, MyProject, SubProject, ProjectText } from './styles'
 
-
+import ProjectDetails from '../project-detail/detail'
 import ProgressBar from '../../ProgressBar/bar'
 
 export class SubSkill extends Component {
@@ -17,7 +17,8 @@ export class SubSkill extends Component {
         dataShow: 0,
         skillPage: 0,
         nextPage: 0,
-        prevPage: 0
+        prevPage: 0,
+        detailPage: 0
     }
 
     componentDidMount() {
@@ -78,6 +79,16 @@ export class SubSkill extends Component {
                 nextPage: 0
             })
         }, 500)
+    }
+
+    detailPageHandler=()=>{
+        this.setState({
+            detailPage:!this.state.detailPage
+        })
+    }
+
+    linkHandler = () => {
+        window.open('https://ustore-alpha.herokuapp.com/', "_blank")
     }
 
     render() {
@@ -192,12 +203,23 @@ export class SubSkill extends Component {
                     </SkillTitle>
                     {
                         this.state.skillPage === 3 ?
-                            <MyProject>
-                                <ProjectHeader linked>U-Store</ProjectHeader>
-                                <ProjectHeader>Coming Soon:</ProjectHeader>
-                                <p>Youtube Clone</p>
-                                <p>Uber Clone(Android)</p>
-                            </MyProject>
+                            this.state.detailPage ?
+                                <ProjectDetails change={this.detailPageHandler}/>
+                                :
+                                <MyProject>
+                                    <SubProject>
+                                        <ProjectText mark><b>U-STORE</b></ProjectText>
+                                        <ProjectText onClick={this.linkHandler} link>Link</ProjectText>
+                                        <ProjectText>70%</ProjectText>
+                                        <ProjectText onClick ={this.detailPageHandler} detail>Detail</ProjectText>
+                                    </SubProject>
+                                    <SubProject>
+                                        <ProjectText mark><b>Youtube Clone</b></ProjectText>
+                                        <ProjectText soon>Coming soon</ProjectText>
+                                        <ProjectText>10%</ProjectText>
+                                        <ProjectText detail>Detail</ProjectText>
+                                    </SubProject>
+                                </MyProject>
                             :
                             data[this.state.skillPage].map((item, index) => {
                                 return (

@@ -5,7 +5,8 @@ import {
     SubInput,
     InputField,
     SubmitButton,
-    TextArea
+    TextArea,
+    ErrText
 } from './styles';
 
 export class ContactForm extends Component {
@@ -15,7 +16,8 @@ export class ContactForm extends Component {
         email: null,
         company: null,
         message: null,
-        feedback: null
+        feedback: null,
+        msg: null
     }
 
     inputHandler = e => {
@@ -26,7 +28,7 @@ export class ContactForm extends Component {
     }
 
     submitForm = async () => {
-        fetch('https://portofolio-api.herokuapp.com/post', {
+        fetch('http://localhost:9000/post', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -35,7 +37,12 @@ export class ContactForm extends Component {
             body: JSON.stringify(this.state)
         })
             .then(res => res.json())
-            .then(data => data)
+            .then(data => {
+                this.setState({
+                    msg: data.msg
+                })
+                return data
+            })
     }
 
     render() {
@@ -75,6 +82,12 @@ export class ContactForm extends Component {
                     <TextArea name="feedback" spellCheck="false" autoCorrect="false" onChange={this.inputHandler}></TextArea>
                 </SubInput>
                 <SubInput>
+                    {
+                        this.state.msg ?
+                            <ErrText>{this.state.msg}</ErrText>
+                            :
+                            null
+                    }
                     <SubmitButton type='submit' value='SEND' onClick={this.submitForm} />
                 </SubInput>
             </FormContainer>
