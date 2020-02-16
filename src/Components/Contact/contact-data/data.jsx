@@ -68,7 +68,7 @@ export class ContactData extends Component {
 			},
 			{
 				logo: faLinkedin,
-				data: 'Alexander'
+				data: 'linkedin.com/in/xandervin'
 			}
 		];
 
