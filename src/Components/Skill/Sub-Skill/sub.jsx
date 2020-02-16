@@ -61,7 +61,7 @@ export class SubSkill extends Component {
         }, 0)
         setTimeout(() => {
             this.setState({
-                skillPage: this.state.skillPage < 4 ? this.state.skillPage + 1 : this.state.skillPage,
+                skillPage: this.state.skillPage < 3 ? this.state.skillPage + 1 : this.state.skillPage,
                 nextPage: 0
             })
         }, 500)
@@ -81,9 +81,9 @@ export class SubSkill extends Component {
         }, 500)
     }
 
-    detailPageHandler=()=>{
+    detailPageHandler = () => {
         this.setState({
-            detailPage:!this.state.detailPage
+            detailPage: !this.state.detailPage
         })
     }
 
@@ -105,10 +105,10 @@ export class SubSkill extends Component {
                 logo: faEdit,
                 text: "UI/UX"
             },
-            {
-                logo: faProjectDiagram,
-                text: "Project"
-            },
+            // {
+            //     logo: faProjectDiagram,
+            //     text: "Project"
+            // },
             {
                 logo: faAngleDoubleUp,
                 text: "Improvement"
@@ -173,7 +173,7 @@ export class SubSkill extends Component {
                     percentage: 20
                 }
             ],
-            [],
+            // [],
             [
                 {
                     logo: faPython,
@@ -194,7 +194,7 @@ export class SubSkill extends Component {
                         this.state.skillPage > 0 ? <LeftArrow onClick={this.prevSkillPage} show={this.state.dataShow}>{"<"}</LeftArrow> : null
                     }
                     {
-                        this.state.skillPage < 4 ? <RightArrow onClick={this.nextSkillPage} show={this.state.dataShow}>{">"}</RightArrow> : null
+                        this.state.skillPage < 3 ? <RightArrow onClick={this.nextSkillPage} show={this.state.dataShow}>{">"}</RightArrow> : null
 
                     }
                     <SkillTitle next={this.state.nextPage} show={this.state.dataShow} >
@@ -202,24 +202,25 @@ export class SubSkill extends Component {
                         <h1>{title[this.state.skillPage].text}</h1>
                     </SkillTitle>
                     {
-                        this.state.skillPage === 3 ?
-                            this.state.detailPage ?
-                                <ProjectDetails change={this.detailPageHandler}/>
-                                :
-                                <MyProject>
-                                    <SubProject>
-                                        <ProjectText mark><b>U-STORE</b></ProjectText>
-                                        <ProjectText onClick={this.linkHandler} link>Link</ProjectText>
-                                        <ProjectText>70%</ProjectText>
-                                        <ProjectText onClick ={this.detailPageHandler} detail>Detail</ProjectText>
-                                    </SubProject>
-                                    <SubProject>
-                                        <ProjectText mark><b>Youtube Clone</b></ProjectText>
-                                        <ProjectText soon>Coming soon</ProjectText>
-                                        <ProjectText>10%</ProjectText>
-                                        <ProjectText detail>Detail</ProjectText>
-                                    </SubProject>
-                                </MyProject>
+                        this.state.skillPage === 4 ?
+                            null
+                            // this.state.detailPage ?
+                            //     <ProjectDetails change={this.detailPageHandler}/>
+                            //     :
+                            //     <MyProject>
+                            //         <SubProject>
+                            //             <ProjectText mark><b>U-STORE</b></ProjectText>
+                            //             <ProjectText onClick={this.linkHandler} link>Link</ProjectText>
+                            //             <ProjectText>70%</ProjectText>
+                            //             <ProjectText onClick ={this.detailPageHandler} detail>Detail</ProjectText>
+                            //         </SubProject>
+                            //         <SubProject>
+                            //             <ProjectText mark><b>Youtube Clone</b></ProjectText>
+                            //             <ProjectText soon>Coming soon</ProjectText>
+                            //             <ProjectText>10%</ProjectText>
+                            //             <ProjectText detail>Detail</ProjectText>
+                            //         </SubProject>
+                            //     </MyProject>
                             :
                             data[this.state.skillPage].map((item, index) => {
                                 return (
@@ -236,7 +237,7 @@ export class SubSkill extends Component {
                             })
                     }
                     {
-                        this.state.skillPage === 4 ?
+                        this.state.skillPage === 3 ?
                             <MyProject mark>
                                 <p>*Percentage for April 2020</p>
                             </MyProject>
