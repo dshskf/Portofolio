@@ -41,6 +41,16 @@ export class ContactForm extends Component {
                 this.setState({
                     msg: data.msg
                 })
+                if (data.msg === "Thank You!") {
+                    this.setState({
+                        name: null,
+                        email: null,
+                        company: null,
+                        message: null,
+                        feedback: null
+                    })
+                }
+
                 return data
             })
     }
