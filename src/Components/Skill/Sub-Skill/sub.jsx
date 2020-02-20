@@ -18,7 +18,8 @@ export class SubSkill extends Component {
         skillPage: 0,
         nextPage: 0,
         prevPage: 0,
-        detailPage: 0
+        detailPage: 0,
+        stop: 0
     }
 
     componentDidMount() {
@@ -49,7 +50,11 @@ export class SubSkill extends Component {
                 animation: 1
             })
         }, formWidth > 760 ? 9000 : 0)
-
+        setTimeout(() => {
+            this.setState({
+                stop: 1
+            })
+        }, formWidth > 760 ? 9800 : 0)
     }
 
 
@@ -188,16 +193,16 @@ export class SubSkill extends Component {
 
 
         return (
-            <SubSkillContainer line={this.state.lineShow} rotate={this.state.rotate}>
-                <Skill show={this.state.show} animate={this.state.animation}>
+            <SubSkillContainer line={this.state.lineShow} rotate={this.state.rotate} animation={this.state.stop}>
+                <Skill show={this.state.show} animate={this.state.animation} animation={this.state.stop}>
                     {
-                        this.state.skillPage > 0 ? <LeftArrow onClick={this.prevSkillPage} show={this.state.dataShow}>{"<"}</LeftArrow> : null
+                        this.state.skillPage > 0 ? <LeftArrow onClick={this.prevSkillPage} show={this.state.dataShow} animation={this.state.stop}>{"<"}</LeftArrow> : null
                     }
                     {
-                        this.state.skillPage < 3 ? <RightArrow onClick={this.nextSkillPage} show={this.state.dataShow}>{">"}</RightArrow> : null
+                        this.state.skillPage < 3 ? <RightArrow onClick={this.nextSkillPage} show={this.state.dataShow} animation={this.state.stop}>{">"}</RightArrow> : null
 
                     }
-                    <SkillTitle next={this.state.nextPage} show={this.state.dataShow} >
+                    <SkillTitle next={this.state.nextPage} show={this.state.dataShow} animation={this.state.stop}>
                         <IconLogo icon={title[this.state.skillPage].logo} head />
                         <h1>{title[this.state.skillPage].text}</h1>
                     </SkillTitle>

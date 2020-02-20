@@ -38,6 +38,11 @@ const shadow = keyframes`
     }
 `;
 
+const boolTransition = css`
+transition:${props => props.animation ? null : "all 1s"};
+
+`
+
 const uiLogo = css`
 	height: 1.5rem;
 	width: 1.5rem;
@@ -71,7 +76,7 @@ export const SubSkillContainer = styled.div`
 			? 'rotate(90deg) translateX(0rem)'
 			: 'rotate(90deg) translateX(-100rem)'};
 	transform: ${(props) => (props.rotate ? 'rotate(0)' : null)};
-	transition: all 1s;
+	${boolTransition};
 
 	@media (max-width: 760px) {
 		width: 100vw;
@@ -94,10 +99,9 @@ export const Skill = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	transform: ${(props) => (props.show ? 'scale(1)' : 'scale(0)')};
-	opacity: ${(props) => (props.show ? 1 : 0)};
+	transform: ${(props) => (props.show ? 'scale(1)' : 'scale(0)')};	
 	animation: ${shadow} 3s linear infinite;
-	transition: all 1s;
+	${boolTransition};
 
 	&:before {
 		content: '';
@@ -109,7 +113,7 @@ export const Skill = styled.div`
 		border-top: 0.4rem solid #292929;
 		border-bottom: 0.4rem solid #292929;
 		animation: ${round} 3s linear infinite;
-		transition: all 1.5s;
+		transition: ${props => props.animation ? null : "all 1.5s"};
 
 		@media (max-width: 760px) {
 			animation: none;
@@ -133,7 +137,7 @@ const arrow = css`
 	position: absolute;
 	cursor: pointer;
 	opacity: ${(props) => (props.show ? 1 : 0)};
-	transition: all 0.3s;
+	transition: ${props => props.animation ? null : "all 0.3s"};
 
 	&:hover {
 		transform: scale(1.5);
@@ -169,7 +173,7 @@ export const SkillTitle = styled.div`
 	opacity: ${(props) => {
 		return props.show ? (props.next ? 0 : 1) : 0;
 	}};
-	transition: all 1s;
+	${boolTransition};
 
 	h1 {
 		color: white;
@@ -194,7 +198,7 @@ export const SkillList = styled.div`
 	filter: ${(props) => {
 		return props.show ? (props.next ? 'blur(20px)' : null) : null;
 	}};
-	transition: all 1s;
+	${boolTransition};
 
 	@media (max-width: 760px) {
 		width: 80%;

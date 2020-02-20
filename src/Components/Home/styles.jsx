@@ -69,7 +69,8 @@ export const HomeData = styled.div`
 	left: 20%;
 	top: 23%;
 	transform:${(props) => (props.show ? "translateY(0rem)" : "translateY(-100rem)")};	
-	transition: all 1s ease-out;
+	transition:${props => props.animation ? null : "all 1s ease-out"} ;
+
 
 	&:hover {
 		box-shadow:0 0 10px 2px ${(props) => (props.invert ? 'white' : '#00ff76')};

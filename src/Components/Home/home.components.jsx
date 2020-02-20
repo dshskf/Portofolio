@@ -22,7 +22,8 @@ export class HomeComponent extends Component {
         invertColor: false,
         show: false,
         showBox: false,
-        showImg: false
+        showImg: false,
+        stop:0
     };
 
     componentDidMount() {
@@ -38,8 +39,18 @@ export class HomeComponent extends Component {
         }, formWidth > 760 ? 2300 : 0);
 
         setTimeout(() => {
-            this.setState({ showBox: !this.state.showBox });
+            this.setState({ 
+                showBox: !this.state.showBox                
+            });
         }, formWidth > 760 ? 3300 : 0);
+
+        setTimeout(() => {
+            this.setState({ 
+                stop:1
+            });
+        }, formWidth > 760 ? 4500 : 0);
+
+
     }
 
     mouseHover = () => {
@@ -88,7 +99,8 @@ export class HomeComponent extends Component {
                     invert={this.state.invertColor ? 1 : 0}
                     show={this.state.showBox ? 1 : 0}
                 />
-                <HomeData
+                <HomeData 
+                    animation={this.state.stop}
                     hover={this.state.isHover}
                     invert={this.state.invertColor ? 1 : 0}
                     show={this.state.showBox ? 1 : 0}>
@@ -110,9 +122,9 @@ export class HomeComponent extends Component {
                 />
 
                 <HomeAdditional show={this.state.show}>
-                    <SubHome show={this.state.show} {...data.web} />
-                    <SubHome show={this.state.show} {...data.android} />
-                    <SubHome show={this.state.show} {...data.ui_ux} />
+                    <SubHome show={this.state.show} animation={this.state.stop} {...data.web} />
+                    <SubHome show={this.state.show} animation={this.state.stop} {...data.android} />
+                    <SubHome show={this.state.show} animation={this.state.stop} {...data.ui_ux} />
                 </HomeAdditional>
             </HomeContainer>
         );

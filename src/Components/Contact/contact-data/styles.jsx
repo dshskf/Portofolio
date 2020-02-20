@@ -49,7 +49,7 @@ export const MaskDisplay = styled.div`
 	align-items: center;
 	transform: ${(props) => (props.isShow ? 'translateY(-35%)' : 'translateY(0)')};	
 	z-index: 2;
-	transition:all 1s ease-out;
+	transition:${props => props.animation ? null : "all 1s ease-out"};
 	animation: ${shadow} 3s both infinite ease-out;	
 	animation-duration: ${(props) => (props.moving ? '3s' : '20s')};
 
@@ -69,7 +69,7 @@ export const DetailDisplay = styled.div`
 	left: 15%;
 	height: 100vh;
 	z-index: 1;
-	transition:all 0.5s;
+	transition:${props => props.animation ? null : "all .5s"};
 
 	@media (max-width:760px){
 		left:0;

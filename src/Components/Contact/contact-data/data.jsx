@@ -20,7 +20,8 @@ export class ContactData extends Component {
 		circle: 0,
 		outerCircle: 0,
 		movingCircle: 0,
-		shadow: 0
+		shadow: 0,
+		stop: 0
 	};
 
 	componentDidMount = () => {
@@ -44,11 +45,18 @@ export class ContactData extends Component {
 				show: 1
 			});
 		}, 4500);
+		setTimeout(() => {
+			this.setState({
+				stop: 1
+			});
+		}, 6000);
 	};
+
 
 	showData = () => {
 		this.setState({
-			show: this.state.show === 0 ? 1 : 0
+			show: this.state.show === 0 ? 1 : 0,
+			stop: 0
 		});
 	};
 
@@ -74,7 +82,12 @@ export class ContactData extends Component {
 
 		return (
 			<React.Fragment>
-				<MaskDisplay onClick={this.showData} isShow={this.state.show} moving={this.state.movingCircle}>
+				<MaskDisplay
+					onClick={this.showData}
+					isShow={this.state.show}
+					moving={this.state.movingCircle}
+					animation={this.state.stop}
+				>
 					<OuterCircle moving={this.state.outerCircle} />
 					<MovingCircle moving={this.state.movingCircle} />
 					<Header moving={this.state.circle}>Contact Me</Header>
@@ -86,7 +99,7 @@ export class ContactData extends Component {
 					/>
 				</MaskDisplay>
 
-				<DetailDisplay moving={this.state.movingCircle}>
+				<DetailDisplay moving={this.state.movingCircle} animation={this.state.stop}>
 					<HoverDisplay>
 						{data.map((item, index) => {
 							return (

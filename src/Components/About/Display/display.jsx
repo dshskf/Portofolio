@@ -5,7 +5,8 @@ export class Display extends Component {
 
     state = {
         show: 0,
-        showTitle:0
+        showTitle:0,
+        stop:0
     }
 
     componentDidMount() {
@@ -19,13 +20,18 @@ export class Display extends Component {
                 showTitle: 1
             })            
         }, 4700)
+        setTimeout(() => {
+            this.setState({
+                stop: 1
+            })            
+        }, 5700)
     }
 
     render() {
         return (
             <Detail>
                 <AboutBox>
-                    <SubBox show={this.state.show}>
+                    <SubBox show={this.state.show} animation={this.state.stop}>
                         <Title show={this.state.showTitle}>ABOUT ME</Title>
                     </SubBox>
                 </AboutBox>

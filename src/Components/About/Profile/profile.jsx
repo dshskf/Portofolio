@@ -7,7 +7,8 @@ export class Profiles extends Component {
 
     state = {
         fillParam: 0,
-        show: 0
+        show: 0,
+        stop:0
     }
 
     componentDidMount() {
@@ -23,8 +24,13 @@ export class Profiles extends Component {
                 fillParam: 1
             })
         }, formWidth > 760 ? 6000 : 0)
+        setTimeout(() => {
+            this.setState({
+                stop: 1
+            })
+        }, formWidth > 760 ? 8000 : 0)
     }
-
+ 
     render() {
         const data = [
             {
@@ -51,7 +57,7 @@ export class Profiles extends Component {
 
         return (
             <Profile >
-                <ProfileContainer show={this.state.show}>
+                <ProfileContainer show={this.state.show} animation={this.state.stop}>
                     <Information>
                         <h1><b>ALEXANDER</b> KEVIN</h1>
                         <h2>SOFTWARE DEVELOPER</h2>

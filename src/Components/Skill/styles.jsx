@@ -36,12 +36,16 @@ export const SkillDetail = styled.div`
 	}
 `;
 
+const caseLine = css`
+	transition:${props => props.delay ? null : "all 3s ease-out"};
+`
+
 export const CenterLine = styled.div`
 	height: 100vh;
     left: 47vw;
     transform:${props => props.show ? "scale(1) translateY(0)" : "scale(0.1) translateY(10vh)"};
     opacity:${props => props.show ? 1 : 0};
-    transition:all 1.25s ease-out;
+    transition:${props => props.delay ? null : "all 1.2s ease-out"};;
 	${customline};
 `;
 
@@ -49,8 +53,8 @@ export const TopLeft = styled.div`
 	position: absolute;
 	border-bottom-left-radius: 30%;
     left: 28vw;
-    transform:${props => props.show ? "translateY(0)" : "translateY(-50rem)"};
-    transition:all 3s ease-out;
+    transform:${props => props.show ? "translateY(0)" : "translateY(-50rem)"};    
+	${caseLine};
 	${topConfig};
 	${customline};
 
@@ -69,7 +73,7 @@ export const TopRight = styled.div`
 	border-bottom-right-radius: 30%;
     left: 64.5vw;
     transform:${props => props.show ? "translateY(0)" : "translateY(-50rem)"};
-    transition:all 3s ease-out;
+    ${caseLine};
 	${topConfig};
 	${customline};
 
@@ -88,8 +92,7 @@ export const BottomLeft = styled.div`
 	border-top-left-radius: 30%;
 	left: 28vw;	
     transform:${props => props.show ? "translateY(0)" : "translateY(50rem)"};
-    transition:all 3s ease-out;
-
+    ${caseLine};
     ${bottomConfig};
 	${customline};
 
@@ -108,8 +111,7 @@ export const BottomRight = styled.div`
 	border-top-right-radius: 30%;
     left: 64.5vw;
     transform:${props => props.show ? "translateY(0)" : "translateY(50rem)"};
-    transition:all 3s ease-out;
-
+    ${caseLine};
 	${bottomConfig};
 	${customline};
 

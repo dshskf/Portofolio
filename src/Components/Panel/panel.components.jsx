@@ -17,7 +17,8 @@ export class Panel extends Component {
 
 		this.state = {
 			finishMount: null,
-			disableDelay: null
+			disableDelay: null,
+			stop: 0
 		};
 
 		this.elementRef = React.createRef()
@@ -31,7 +32,10 @@ export class Panel extends Component {
 			this.setState({ finishMount: 'start' });
 		}, formWidth > 760 ? 200 : 0);
 		setTimeout(() => {
-			this.setState({ disableDelay: 'disable' });
+			this.setState({
+				disableDelay: 'disable',
+				stop: 1
+			});
 		}, formWidth > 760 ? 1500 : 0);
 	}
 
@@ -61,17 +65,18 @@ export class Panel extends Component {
 		]
 		return (
 			<PanelContainer>
-				<PanelSizer show={this.state.finishMount} delay={this.state.disableDelay}>
+				<PanelSizer show={this.state.finishMount} delay={this.state.disableDelay} animation={this.state.stop}>
 					{
 						data.map((item, ind) => {
 							return (
 								<React.Fragment key={ind}>
-									<PanelIcon
+									<PanelIcon 
 										id={item.text === "Home" ? "" : item.text.toLowerCase()}
 										icon={item.icon}
 										show={this.state.finishMount}
 										delay={this.state.disableDelay}
 										highlight={index === ind ? 1 : 0}
+										animation={this.state.stop}
 										onClick={this.clickedPage}
 									/>
 									<Pargaraph

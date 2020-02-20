@@ -14,7 +14,7 @@ export const ProfileContainer = styled.div`
 	justify-content: center;
 	opacity:${props => props.show ? 1 : 0};
 	filter: ${(props) => (props.show ? '' : 'blur(10px)')};
-	transition:all 3s;
+	transition:${props => props.animation ? null : "all 3s"};
 
 	@media(max-width:760px){
 		position:absolute;

@@ -10,19 +10,19 @@ export const SubContainer = styled.div`
 	padding: 1rem 0;
 	border-right: 2px solid #00ff76;	
 	transform:translateY(100rem);
-	transition: all 0.5s;
+	transition: ${props => props.animate ? null : "all 0.5s"};
 
 	&:nth-child(1) {
 		transform: ${(props) => (props.isShow ? 'translateY(0rem)' : null)};
-		transition-delay: 0.2s;
+		transition-delay: ${props => props.animate ? null : "0.2s"};
 	}
 	&:nth-child(2) {
 		transform: ${(props) => (props.isShow ? 'translateY(0rem)' : null)};
-		transition-delay: 0.7s;
+		transition-delay: ${props => props.animate ? null : "0.7s"};
 	}
 	&:nth-child(3) {
 		transform: ${(props) => (props.isShow ? 'translateY(0rem)' : null)};
-		transition-delay: 1.2s;
+		transition-delay: ${props => props.animate ? null : "1.2s"};
 	}
 
 	h1 {

@@ -48,7 +48,7 @@ export const SubBox = styled.div`
 	text-align: right;
 	transform: ${(props) => (props.show ? null : 'translateX(-100rem)')};
 	animation: ${shadow} 3s linear infinite;
-	transition: all 1.5s ease-out;
+	transition:${props => props.animation ? null : "all 1.5s ease-out"} ;
 
 	&:before {
 		content: '';
@@ -61,7 +61,7 @@ export const SubBox = styled.div`
 		border: 1rem solid #00ff76;
 		transform: ${(props) => (props.show ? null : 'translateX(-100rem)')};
 		animation: ${shadow} 3s linear infinite;
-		transition: all 1s ease-out;
+		transition: ${props => props.animation ? null : "all 1s ease-out"} ;
 
 		@media(max-width:760px){
 		border:none;

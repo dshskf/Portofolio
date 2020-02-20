@@ -6,7 +6,7 @@ const panelList = css`
 	color: ${(props) => (props.highlight ? '#00ff76' : 'white')};
 	filter: ${(props) => (props.highlight ? 'drop-shadow(0 0 5px #00ff76)' : null)};	
 	opacity:1;	
-	transition: ${(props) => (props.delay ? 'all 0.2s' : 'all .75s ease-out')};
+	transition:${props => props.animation ? null : "all .5s"};
 `;
 
 export const PanelContainer = styled.div`
@@ -32,7 +32,7 @@ export const PanelSizer = styled.div`
 	align-items: center;
 	justify-content: center;
 	transform:translateY(25vh);
-	transition: all 2s;
+	transition:${props => props.animation ? null : "all 2s"};
 
 	@media (max-width:760px) {
 		flex-direction: row;

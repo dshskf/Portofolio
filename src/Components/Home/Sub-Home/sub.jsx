@@ -4,9 +4,9 @@ import { SubContainer, IconLogo, ListParent, List } from './styles'
 
 export class SubHome extends Component {
     render() {
-        const { icon, title, list, show } = this.props
+        const { icon, title, list, show, animation } = this.props
         return (
-            <SubContainer isShow={show ? 1 : 0}>
+            <SubContainer isShow={show ? 1 : 0} animate={animation}>
                 <IconLogo icon={icon}></IconLogo>
                 <h1>{title}</h1>
                 <ListParent>

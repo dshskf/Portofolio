@@ -6,7 +6,8 @@ export class SkillComponents extends Component {
 
     state = {
         lineShow: 0,
-        show: 0
+        show: 0,
+        stop: 0
     }
 
     componentDidMount() {
@@ -20,17 +21,21 @@ export class SkillComponents extends Component {
                 show: 1
             })
         }, 4200)
-
+        setTimeout(() => {
+            this.setState({
+                stop: 1
+            })
+        }, 9000)
     }
 
     render() {
         return (
             <SkillDetail>
-                <TopLeft show={this.state.show} />
-                <TopRight show={this.state.show} />
-                <BottomLeft show={this.state.show} />
-                <BottomRight show={this.state.show} />
-                <CenterLine show={this.state.lineShow} />
+                <TopLeft show={this.state.show} delay={this.state.stop} />
+                <TopRight show={this.state.show} delay={this.state.stop} />
+                <BottomLeft show={this.state.show} delay={this.state.stop} />
+                <BottomRight show={this.state.show} delay={this.state.stop} />
+                <CenterLine show={this.state.lineShow} delay={this.state.stop} />
                 <SubSkill></SubSkill>
             </SkillDetail>
         )
