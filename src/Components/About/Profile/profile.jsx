@@ -8,7 +8,7 @@ export class Profiles extends Component {
     state = {
         fillParam: 0,
         show: 0,
-        stop:0
+        stop: 0
     }
 
     componentDidMount() {
@@ -30,7 +30,7 @@ export class Profiles extends Component {
             })
         }, formWidth > 760 ? 8000 : 0)
     }
- 
+
     render() {
         const data = [
             {
@@ -47,11 +47,11 @@ export class Profiles extends Component {
             },
             {
                 attr: "Communication",
-                percentage: 50
+                percentage: 70
             },
             {
                 attr: "Confidence",
-                percentage: 60
+                percentage: 55
             }
         ]
 

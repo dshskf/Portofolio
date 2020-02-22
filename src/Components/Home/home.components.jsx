@@ -117,7 +117,7 @@ export class HomeComponent extends Component {
 					</DownloadButton>
                 </HomeData>
                 <Image
-                    src={require('../../Assets/me.png')}
+                    src={require('../../Assets/bg.png')}
                     show={this.state.showImg ? 1 : 0}
                 />
 
