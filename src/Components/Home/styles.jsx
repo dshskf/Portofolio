@@ -118,8 +118,10 @@ export const Image = styled.img`
 	height: 60%;
 	left: 60%;
 	top: 15%;	
-	/* filter:${(props) => (props.show ? "blur(0) brightness(100%) opacity(1)" : "blur(20px) brightness(0%) opacity(0)")};	 */
-	transform:${(props) => (props.show ? "rotate(0deg)" : "rotate(180deg)")};
+	filter:${(props) => (props.show ? "blur(0) brightness(100%) opacity(1)" : "blur(20px) brightness(0%) opacity(0)")};	 
+	/* transform:${(props) => (props.show ? "rotate(0deg)" : "rotate(180deg)")}; */
+	/* transform:${(props) => (props.show ? "scale(1)" : "scale(2)")}; */
+	transform:${(props) => (props.show ? "translateY(0)" : "translateY(50%)")};
 	transform-origin:bottom;
 	transition:all 1s ease-in;
 

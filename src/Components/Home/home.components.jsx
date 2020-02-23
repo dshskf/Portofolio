@@ -36,13 +36,13 @@ export class HomeComponent extends Component {
 
         setTimeout(() => {
             this.setState({ showImg: !this.state.showImg });
-        }, formWidth > 760 ? 2300 : 0);
+        }, formWidth > 760 ? 2000 : 0);
 
         setTimeout(() => {
             this.setState({ 
                 showBox: !this.state.showBox                
             });
-        }, formWidth > 760 ? 3300 : 0);
+        }, formWidth > 760 ? 3000 : 0);
 
         setTimeout(() => {
             this.setState({ 
@@ -84,7 +84,7 @@ export class HomeComponent extends Component {
             android: {
                 icon: faAndroid,
                 title: 'Android',
-                list: ['Java Development', '1 Year Experience']
+                list: ['Java Development', '3 Month Experience']
             }
         };
         return (
