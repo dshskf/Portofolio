@@ -61,7 +61,7 @@ export class Profiles extends Component {
                     <Information>
                         <h1><b>ALEXANDER</b> KEVIN</h1>
                         <h2>SOFTWARE DEVELOPER</h2>
-                        <p>Born in <b>Surabaya</b>, 18 March 1999, i'm 21 years old software developer with some experience in developing web and android app, i'm the first son of two, now im living in Cikarang as the 8 semester student in President University.</p>
+                        <p>Born in <b>Surabaya</b>, 18 March 1999, I'm 21 years old software developer with some experience in developing web and android app, I'm the first son of two, now I'm living in Cikarang as the<br />8-semester student in President University.</p>
                     </Information>
 
                     <Attributes>
