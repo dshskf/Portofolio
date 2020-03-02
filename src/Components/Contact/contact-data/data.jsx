@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { faLine, faWhatsapp, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faWhatsapp, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faChevronCircleDown } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -67,8 +67,8 @@ export class ContactData extends Component {
 				data: 'alexkeman9@gmail.com'
 			},
 			{
-				logo: faLine,
-				data: 'a7kevin'
+				logo: faGithub,
+				data: 'github.com/dshskf'
 			},
 			{
 				logo: faWhatsapp,
